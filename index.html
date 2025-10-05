@@ -235,7 +235,8 @@
         <figure class="algorithm">
           <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:100%;max-width:100%;height:auto;display:block;margin:0 auto;">
         </figure>
-        
+        <p>
+        </p>
         <div class="content has-text-justified">
           <h3 class="title is-4">Stage I: Fast Trajectory</h3>
           <p>
@@ -319,14 +320,31 @@
         <h2 class="title is-3">More Efficient Training</h2>
         <div class="content has-text-justified">
           <p>
-          Not only does SFPO achieve faster convergence in the early stages, but it also sustains higher global accuracy by the end of training. For example, Qwen3-4B-Base model achieves a sharper rise and stabilizes at a higher accuracy within only 150 training steps, while vanilla GRPO cannot surpass this accuracy even after 400 steps. Consequently, SFPO leads up to <strong>$3.5\times$</strong> fewer rollouts and up to <strong>$2.65\times$</strong> fewer wall clock training time for Qwen3-4B-Base model. 
+          We evaluate the efficiency gains of SFPO over GRPO by comparing the total number of rollouts and the wall-clock time required to reach the same benchmark accuracy. Specifically, SFPO requires <strong>3.21×</strong>, <strong>3.50×</strong>, and <strong>4.93×</strong> fewer rollouts than GRPO for DS-Qwen-1.5B, Qwen3-4B-Base, and DS-Qwen-7B, respectively, to reach the same best accuracy. This advantage directly translates into reduced training time, where SFPO achieves <strong>2.62×</strong>, <strong>2.65×</strong>, and <strong>4.19×</strong> speedups over GRPO for the same models, significantly lowering the training cost. Note that SFPO does not introduce extra GPU memory overhead as it does not need to store the heavy optimizer status. These significant efficiency gains align with our expectations, since the primary bottleneck in the training process lies in rollout generation, which accounts for more than 70\% of the overall inference time. By substantially reducing the number of rollouts required and harnessing the reposition mechanism, SFPO alleviates this bottleneck and achieves faster training. 
           </p> 
         </div>
         <figure class="algorithm">
           <img src="./static/images/efficient_training.png" alt="SFPO algorithm" style="width:100%;max-width:100%;height:auto;display:block;margin:0 auto;">
         </figure>
          <figure class="algorithm">
-          <img src="./static/images/efficiency_results.png" alt="SFPO algorithm" style="width:100%;max-width:100%;height:auto;display:block;margin:0 auto;">
+          <img src="./static/images/efficiency_results.png" alt="SFPO algorithm" style="width:60%;max-width:100%;height:auto;display:block;margin:0 auto;">
+        </figure>
+      </div>
+    </div>
+</section>
+
+  <div class="container is-max-desktop">
+    <!-- Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Better Performance on Math Reasoning Benchmarks</h2>
+        <div class="content has-text-justified">
+          <p>
+          our proposed SFPO consistently outperforms vanilla GRPO across all base models and benchmarks. Specifically, for small-scale models such as Qwen2.5-Math-1.5B and DS-distilled-Qwen-1.5B, SFPO demonstrates superior performance enhancements on math reasoning benchmarks, raising the average accuracy from 38.35 to 40.19 with an absolute gain of <strong>+1.84</strong>, and from 47.73 to 50.53 with a gain of <strong>+2.80</strong>, respectively. The improvements are particularly pronounced on challenging tasks such as AIME24 and AIME25, where DS-distilled-Qwen-1.5B achieves an absolute gain of <strong>+7.5</strong> on AIME25. The larger models also exhibit similar performance gains. For Qwen2.5-Math-7B, SFPO raises the average accuracy from 48.36 to 49.19 with an absolute gain of <strong>+1.80</strong>. For DS-distilled-Qwen-7B, SFPO boosts the average accuracy from 60.47 to 63.04, corresponding to an absolute gain of <strong>+0.8</strong>. For Qwen3-4B-Base model, SFPO improves average accuracy from 43.99 to 45.59, an absolute gain of <strong>+1.60</strong>, highlighting its robustness across various models.
+          </p> 
+        </div>
+        <figure class="algorithm">
+          <img src="./static/images/benchmark_results.png" alt="SFPO algorithm" style="width:100%;max-width:100%;height:auto;display:block;margin:0 auto;">
         </figure>
       </div>
     </div>
