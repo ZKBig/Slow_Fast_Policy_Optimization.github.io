@@ -225,15 +225,15 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <figure class="algorithm">
-      <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:70%;max-width:100%;height:auto;display:block;margin:0 auto;">
-    </figure>
     
     <!-- Method -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method</h2>
+         <figure class="algorithm">
+          <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:80%;max-width:100%;height:auto;display:block;margin:0 auto;">
+        </figure>
+        
         <div class="content has-text-justified">
           <h3 class="title is-4">Stage I: Fast Trajectory</h3>
           <p>
@@ -268,7 +268,7 @@
             While the fast trajectory of Stage&nbsp;I improves stability, it also <strong>changes the nature of the update from on-policy to off-policy</strong>. Since all inner steps $\theta^{s,1},\dots,\theta^{s,K}$ reuse the same rollouts generated at $\theta^{s,0}$, the endpoint $\theta^{s,K}$ no longer corresponds to the distribution that produced those samples. This <strong>distribution mismatch</strong> is a fundamental drawback of off-policy learning, as it biases gradient estimates and can destabilize training.
           </p>
           <p>
-            Inspired by Lookahead Optimization, SFPO introduces a <strong>reposition step</strong>> that interpolates the fast trajectory back toward its starting point:
+            Inspired by Lookahead Optimization, SFPO introduces a <strong>reposition step</strong> that interpolates the fast trajectory back toward its starting point:
           </p>
           <p>
 \[
