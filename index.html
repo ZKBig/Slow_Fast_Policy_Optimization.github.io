@@ -225,6 +225,11 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+
+    <figure class="algorithm">
+      <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:70%;max-width:100%;height:auto;display:block;margin:0 auto;">
+    </figure>
+    
     <!-- Method -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -242,10 +247,10 @@
 \]
           </p>
           <p>
-            where $\nabla_{\theta} \mathcal{L}(\theta^{s})$ is estimated from one batch of rollouts. Such one-shot updates suffer from high variance and often drive the policy in unstable directions, especially during early training. SFPO mitigates this by performing multiple inner updates on the \emph{same} batch or rollouts.
+            where $\nabla_{\theta} \mathcal{L}(\theta^{s})$ is estimated from one batch of rollouts. Such one-shot updates suffer from high variance and often drive the policy in unstable directions, especially during early training. SFPO mitigates this by performing multiple inner updates on the <strong>same</strong> batch or rollouts.
           </p>
           <p>
-            Formally, starting from parameters $\theta^{s,0}$ at the beginning of step $s$, we execute a short \emph{fast trajectory} of $K$ inner updates:
+            Formally, starting from parameters $\theta^{s,0}$ at the beginning of step $s$, we execute a short <strong>fast trajectory</strong> of $K$ inner updates:
           </p>
           <p>
 \[
@@ -260,10 +265,10 @@
 
           <h3 class="title is-4">Stage II: Reposition</h3>
           <p>
-            While the fast trajectory of Stage&nbsp;I improves stability, it also \emph{changes the nature of the update from on-policy to off-policy}. Since all inner steps $\theta^{s,1},\dots,\theta^{s,K}$ reuse the same rollouts generated at $\theta^{s,0}$, the endpoint $\theta^{s,K}$ no longer corresponds to the distribution that produced those samples. This \emph{distribution mismatch} is a fundamental drawback of off-policy learning, as it biases gradient estimates and can destabilize training.
+            While the fast trajectory of Stage&nbsp;I improves stability, it also <strong>changes the nature of the update from on-policy to off-policy</strong>. Since all inner steps $\theta^{s,1},\dots,\theta^{s,K}$ reuse the same rollouts generated at $\theta^{s,0}$, the endpoint $\theta^{s,K}$ no longer corresponds to the distribution that produced those samples. This <strong>distribution mismatch</strong> is a fundamental drawback of off-policy learning, as it biases gradient estimates and can destabilize training.
           </p>
           <p>
-            Inspired by Lookahead Optimization, SFPO introduces a \emph{reposition step} that interpolates the fast trajectory back toward its starting point:
+            Inspired by Lookahead Optimization, SFPO introduces a <strong>reposition step</strong>> that interpolates the fast trajectory back toward its starting point:
           </p>
           <p>
 \[
@@ -288,7 +293,7 @@
 \]
           </p>
           <p>
-            This yields a \emph{predictor—corrector} structure: Stage&nbsp;I produces a stabilized \emph{fast trajectory}, Stage&nbsp;II tempers off-policy drift via \emph{reposition}, and Stage&nbsp;III applies a \emph{slow correction} aligned with the local curvature at the update point.
+            This yields a <strong>predictor—corrector</strong> structure: Stage&nbsp;I produces a stabilized <strong>fast trajectory</strong>, Stage&nbsp;II tempers off-policy drift via <strong>reposition</strong>, and Stage&nbsp;III applies a <strong>slow correction</strong> aligned with the local curvature at the update point.
           </p>
         </div>
       </div>
