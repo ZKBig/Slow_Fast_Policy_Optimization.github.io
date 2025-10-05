@@ -224,6 +224,11 @@
 
 
 <section id="method" class="section">
+
+  <figure class="algorithm">
+    <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:55%;max-width:100%;height:auto;display:block;margin:0 auto;">
+  </figure>
+  
   <div class="container is-max-desktop">
     
     <!-- Method -->
@@ -295,10 +300,6 @@
       </div>
     </div>
   </div>
-
-  <figure class="algorithm">
-    <img src="./static/images/SFPO_algorithm.png" alt="SFPO algorithm" style="width:50%;max-width:100%;height:auto;display:block;margin:0 auto;">
-  </figure>
   
 </section>
 
@@ -308,6 +309,25 @@
   #method mjx-container { color: inherit; } /* make math match text color */
 </style>
 
+<section class="section">
+  
+  <figure class="algorithm">
+    <img src="./static/images/efficient_training.png" alt="SFPO algorithm" style="width:90%;max-width:100%;height:auto;display:block;margin:0 auto;">
+  </figure>
+  
+  <div class="container is-max-desktop">
+    <!-- Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More Efficient Training</h2>
+        <div class="content has-text-justified">
+          <p>
+          Not only does SFPO achieve faster convergence in the early stages, but it also sustains higher global accuracy by the end of training. For example, Qwen3-4B-Base model achieves a sharper rise and stabilizes at a higher accuracy within only 150 training steps, while vanilla GRPO cannot surpass this accuracy even after 400 steps, resulting in up to $3.5\times$ fewer rollouts and up to $2.65\times$ fewer wall clock training time. 
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
