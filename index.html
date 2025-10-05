@@ -22,6 +22,19 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
+  <script>
+    window.MathJax = {
+      tex: {
+        packages: { "[+]": ["ams"] },           // enable AMS (align, aligned, etc.)
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -185,71 +198,13 @@
 <section class="sfpo-pipeline">
   <div class="container is-max-desktop">
     <figure class="pipeline">
-      <img src="./static/images/SFPO_pipeline.png" alt="SFPO pipeline overview" style="width:75%;max-width:100%;height:auto;display:block;margin:0 auto;">
+      <img src="./static/images/SFPO_pipeline.png" alt="SFPO pipeline overview" style="width:90%;max-width:100%;height:auto;display:block;margin:0 auto;">
       <figcaption class="subtitle has-text-centered">
-        SFPO pipeline: fast–reposition–slow optimization.
+        SFPO pipeline: fast–reposition–slow policy update.
       </figcaption>
     </figure>
   </div>
 </section>
-
-<!-- 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 <section class="section">
@@ -260,163 +215,86 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Reinforcement learning (RL) has become central to enhancing reasoning in large language models (LLMs). Yet on-policy algorithms such as Group Relative Policy Optimization (GRPO) often suffer in early training: noisy gradients from low-quality rollouts lead to unstable updates and inefficient exploration. We introduce Slow-Fast Policy Optimization (SFPO), a simple yet efficient framework to address the above limitations via decomposing each step into three stages: a short fast trajectory of inner steps on the same batch, a reposition mechanism to control off-policy drift, and a final slow correction. This reposition-before-update design preserves the objective and rollout process unchanged, making SFPO plug-compatible with existing policy-gradient pipelines. Extensive experiments demonstrate that SFPO consistently improves stability, reduces number of rollouts, and accelerates convergence of reasoning RL training. Specifically, it outperforms GRPO by up to 2.80 points on math reasoning benchmarks. It also achieves up to 4.93× fewer rollouts and a 4.19× reduction in wall-clock time to match GRPO’s best accuracy.
+           Reinforcement learning (RL) has become central to enhancing reasoning in large language models (LLMs). Yet on-policy algorithms such as Group Relative Policy Optimization (GRPO) often suffer in early training: noisy gradients from low-quality rollouts lead to unstable updates and inefficient exploration. We introduce Slow-Fast Policy Optimization (SFPO), a simple yet efficient framework to address the above limitations via decomposing each step into three stages: a short fast trajectory of inner steps on the same batch, a reposition mechanism to control off-policy drift, and a final slow correction. This reposition-before-update design preserves the objective and rollout process unchanged, making SFPO plug-compatible with existing policy-gradient pipelines. Extensive experiments demonstrate that SFPO consistently improves stability, reduces number of rollouts, and accelerates convergence of reasoning RL training. Specifically, it outperforms GRPO by up to 2.80 points in average on math reasoning benchmarks. It also achieves up to 4.93× fewer rollouts and a 4.19× reduction in wall-clock time to match GRPO’s best accuracy.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div> -->
 </section>
 
-<!-- 
+
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div> -->
-      <!--/ Visual Effects.
-
-      <!-- <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div> -->
-    </div> -->
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <!-- <h3 class="title is-4">Interpolating states</h3>
+    <!-- Method -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
+          <h3 class="title is-4">Stage I: Fast Trajectory</h3>
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            In standard on-policy policy-gradient methods such as GRPO, each step is updated by a single stochastic gradient:
           </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/> -->
-            <!-- <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/> --> -->
-        <!--/ Interpolating. -->
+          <p>
+\[
+\begin{align}
+\theta^{s+1} = \theta^{s} - \eta \nabla_{\theta} \mathcal{L}(\theta^{s}),
+\end{align}
+\]
+          </p>
+          <p>
+            where $\nabla_{\theta} \mathcal{L}(\theta^{s})$ is estimated from one batch of rollouts. Such one-shot updates suffer from high variance and often drive the policy in unstable directions, especially during early training. SFPO mitigates this by performing multiple inner updates on the \emph{same} batch or rollouts.
+          </p>
+          <p>
+            Formally, starting from parameters $\theta^{s,0}$ at the beginning of step $s$, we execute a short \emph{fast trajectory} of $K$ inner updates:
+          </p>
+          <p>
+\[
+\begin{align}
+\theta^{s,k+1} = \theta^{s,k} - \eta \nabla_{\theta} \mathcal{L}(\theta^{s,k}), \qquad k=0,\ldots,K-1.
+\end{align}
+\]
+          </p>
+          <p>
+            This produces a sequence $\theta^{s,0} \to \theta^{s,1} \to \cdots \to \theta^{s,K}$, where each step refines the gradient direction using the same rollout data.
+          </p>
 
-        <!-- Re-rendering. -->
-        <!-- <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
+          <h3 class="title is-4">Stage II: Reposition</h3>
           <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
+            While the fast trajectory of Stage&nbsp;I improves stability, it also \emph{changes the nature of the update from on-policy to off-policy}. Since all inner steps $\theta^{s,1},\dots,\theta^{s,K}$ reuse the same rollouts generated at $\theta^{s,0}$, the endpoint $\theta^{s,K}$ no longer corresponds to the distribution that produced those samples. This \emph{distribution mismatch} is a fundamental drawback of off-policy learning, as it biases gradient estimates and can destabilize training.
           </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!--/ Re-rendering. -->
+          <p>
+            Inspired by Lookahead Optimization, SFPO introduces a \emph{reposition step} that interpolates the fast trajectory back toward its starting point:
+          </p>
+          <p>
+\[
+\begin{align}
+\tilde{\theta}^{s,K} = \theta^{s,0} + \alpha(\theta^{s,K} - \theta^{s,0}), \qquad \alpha \in [0,1].
+\end{align}
+\]
+          </p>
+          <p>
+            Here $\alpha$ regulates the degree of off-policy drift: smaller values keep the update close to the original on-policy iterate, while larger values rely more on the fast trajectory at the risk of greater mismatch.
+          </p>
 
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
+          <h3 class="title is-4">Stage III: Slow Correction</h3>
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            After repositioning, SFPO applies one more (slow) correction step at the interpolated point:
           </p>
           <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+\[
+\begin{align}
+\theta^{s+1} = \tilde{\theta}^{s,K} - \eta \nabla_{\theta} \mathcal{L} (\tilde{\theta}^{s,K}).
+\end{align}
+\]
           </p>
           <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+            This yields a \emph{predictor—corrector} structure: Stage&nbsp;I produces a stabilized \emph{fast trajectory}, Stage&nbsp;II tempers off-policy drift via \emph{reposition}, and Stage&nbsp;III applies a \emph{slow correction} aligned with the local curvature at the update point.
           </p>
         </div>
       </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
-
+    </div>
   </div>
-</section> -->
+</section>
 
 
 <!-- <section class="section" id="BibTeX">
